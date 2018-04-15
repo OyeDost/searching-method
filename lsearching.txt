@@ -1,0 +1,49 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
+class Data
+{
+private:
+	int i, n, *ary;
+public:
+	void read_data();
+	int Lsearch_data(int);
+};
+
+void Data::read_data()
+{
+	cout << "\n Enter the array size : ";
+	cin >> n;
+
+	ary = new int[n];
+	cout << "\n Enter " << n << " Elements : ";
+	for (i = 0; i<n; i++)
+		cin >> ary[i];
+}
+
+int Data::Lsearch_data(int k)
+{
+	for (i = 0; i<n; i++)
+	if (k == ary[i])
+		return i;
+	return -1;
+}
+
+void main()
+{
+	Data obj;
+	int key, p;
+	//clrscr();
+
+	obj.read_data();
+
+	cout << "\n Enter the element to search  : ";
+	cin >> key;
+	p = obj.Lsearch_data(key);
+
+	if (p == -1)
+		cout << "\n Element not found \n";
+	else
+		cout << "\n Element found at position " << p;
+}
